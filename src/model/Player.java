@@ -1,11 +1,24 @@
 package model;
 
-public class Player
+import java.io.Serializable;
+
+public class Player implements Serializable 
 {
+	private static final long serialVersionUID = -9170272704529644017L;
+	
 	private String name;
 	private Integer number;
 	private String photo;
 	private String position;
+		
+	public Player(String name, Integer number, String photo, String position)
+	{
+		super();
+		this.name = name;
+		this.number = number;
+		this.photo = photo;
+		this.position = position;
+	}
 	
 	public String getName()
 	{
