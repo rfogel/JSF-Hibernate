@@ -52,4 +52,10 @@ public class Player implements Serializable
 	{
 		this.position = position;
 	}
+	
+	@Override
+	public boolean equals(Object player)
+	{
+		return ( ((Player)player).getName().equals(this.getName()) );		
+	}
 }

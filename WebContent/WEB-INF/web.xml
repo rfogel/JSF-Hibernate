@@ -13,7 +13,7 @@
 
 	<!-- Welcome page -->
 	<welcome-file-list>
-		<welcome-file>/jsp/galleria.xhtml</welcome-file>
+		<welcome-file>/jsp/form.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<!-- JSF mapping -->

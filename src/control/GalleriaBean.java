@@ -10,7 +10,7 @@ import javax.faces.bean.SessionScoped;
 
 import model.Player;
 
-@ManagedBean(name="galleriaBean")
+@ManagedBean
 @SessionScoped
 public class GalleriaBean implements Serializable 
 {  

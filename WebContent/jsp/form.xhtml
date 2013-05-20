@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:oc="http://java.sun.com/jsf/composite/components">
+<h:head>
+</h:head>
+<body>
+	<h:form id="form1">
+		<p:commandButton id="infoButton" value="Info" actionListener="#{formBean.addInfo}" />
+		<p:commandButton id="warnButton" value="Warn" actionListener="#{formBean.addWarn}" />
+		<p:commandButton id="errorButton" value="Error" actionListener="#{formBean.addError}" />
+		<p:commandButton id="fatalButton" value="Fatal" actionListener="#{formBean.addFatal}" />
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+	</h:form>
+	<h3>Login</h3>
+	<h:form id="form2">
+		<h:panelGrid id="grid" columns="3">
+			<h:outputText value="username: *" />
+			<p:inputText id="username" value="#{formBean.username}" default="rfogel" required="true" />
+			<p:message id="usernameMessage" for="username" />
+			
+			<h:outputLabel value="state: " for="acSimple" />  
+            <p:autoComplete id="acSimple" value="#{formBean.state}" completeMethod="#{formBean.complete}"/> 
+            <p:message id="acSimpleMessage" for="acSimple" />
+			
+			<h:outputText value="favourite player: " />
+			<p:selectOneMenu id="player" value="#{formBean.player}" effect="fade" >  
+            	<f:selectItem itemLabel="Select One" itemValue="#{player}" />  
+            	<f:selectItems value="#{galleriaBean.players}" var="player" itemLabel="#{player.name}" itemValue="#{player}" converter="player" />  
+        	</p:selectOneMenu> 
+        	<p:message id="playerManage" for="player" />
+			
+			<h:outputLabel for="pwd1" value="password: *" />  
+            <p:password id="pwd1" value="#{formBean.password}" requiredMessage="password required" match="pwd2" validatorMessage="password not match" label="password" required="true" feedback="true"/>  
+            <p:message id="passwordMessage" for="pwd1" display="password" /> 
+  
+            <h:outputLabel for="pwd2" value="retype password: *" />  
+            <p:password id="pwd2" value="#{formBean.password}" label="password" required="true" requiredMessage="password required" /> 
+            <p:message id="passwordMessage2" for="pwd2" display="password" />
+            
+		</h:panelGrid>
+		<p:commandButton id="submitButton" value="Send" update="grid" action="#{formBean.page1}"/>
+	</h:form>
+</body>
+</html>
+
